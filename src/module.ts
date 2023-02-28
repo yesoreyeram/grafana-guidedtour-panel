@@ -38,6 +38,18 @@ export const plugin = new PanelPlugin<GuidedTourOptions>(GuidedTourPanel).setPan
       defaultValue: 'Stop tour',
       category: ['Tour Settings'],
     })
+    .addTextInput({
+      path: 'buttonPaddingX',
+      name: 'Left and right padding for button',
+      defaultValue: '0px',
+      category: ['Tour Settings'],
+    })
+    .addTextInput({
+      path: 'buttonPaddingY',
+      name: 'Top and bottom padding for button',
+      defaultValue: '0px',
+      category: ['Tour Settings'],
+    })
     .addColorPicker({
       path: 'panelBackgroundColor',
       name: 'Control Panel Background color',

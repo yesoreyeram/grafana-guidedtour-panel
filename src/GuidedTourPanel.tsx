@@ -42,6 +42,8 @@ export const GuidedTourPanel = (props: PanelProps<GuidedTourOptions>) => {
         panelBackgroundImage={options.panelBackgroundImage}
         startButtonText={options.startButtonText}
         stopButtonText={options.stopButtonText}
+        buttonPaddingX={options.buttonPaddingX}
+        buttonPaddingY={options.buttonPaddingY}
       />
       <div className="guidedtour-step">
         <Joyride
