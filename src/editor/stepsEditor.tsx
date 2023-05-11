@@ -44,7 +44,10 @@ export const StepEditor = (props: StandardEditorProps<Step[]>) => {
           {step.selectBy === 'panelTitle' && (
             <div className="gf-form">
               <InlineFormLabel>Target Panel Title</InlineFormLabel>
-              <Input value={step.panelTitle} onChange={(e) => onValueChange(`${index}.panelTitle`, e.currentTarget.value)} />
+              <Input
+                value={step.panelTitle}
+                onChange={(e) => onValueChange(`${index}.panelTitle`, e.currentTarget.value)}
+              />
             </div>
           )}
           {step.selectBy === 'customTarget' && (
@@ -55,19 +58,41 @@ export const StepEditor = (props: StandardEditorProps<Step[]>) => {
           )}
           <div className="gf-form">
             <InlineFormLabel>Guided Tour Content</InlineFormLabel>
-            <TextArea value={step.content} rows={3} onChange={(e) => onValueChange(`${index}.content`, e.currentTarget.value)} />
+            <TextArea
+              value={step.content}
+              rows={3}
+              onChange={(e) => onValueChange(`${index}.content`, e.currentTarget.value)}
+            />
           </div>
           <div className="gf-form">
-            <Button icon="trash-alt" variant="destructive" size="sm" style={{ margin: '5px' }} onClick={() => onStepRemove(index)}>
+            <Button
+              icon="trash-alt"
+              variant="destructive"
+              size="sm"
+              style={{ margin: '5px' }}
+              onClick={() => onStepRemove(index)}
+            >
               Remove step {index + 1}
             </Button>
             {index !== 0 && (
-              <Button icon="arrow-up" size="sm" variant="secondary" style={{ margin: '5px' }} onClick={() => onMoveStep(index, 'up')}>
+              <Button
+                icon="arrow-up"
+                size="sm"
+                variant="secondary"
+                style={{ margin: '5px' }}
+                onClick={() => onMoveStep(index, 'up')}
+              >
                 Move Up
               </Button>
             )}
             {index !== steps.length - 1 && (
-              <Button icon="arrow-down" size="sm" variant="secondary" style={{ margin: '5px' }} onClick={() => onMoveStep(index, 'down')}>
+              <Button
+                icon="arrow-down"
+                size="sm"
+                variant="secondary"
+                style={{ margin: '5px' }}
+                onClick={() => onMoveStep(index, 'down')}
+              >
                 Move Down
               </Button>
             )}

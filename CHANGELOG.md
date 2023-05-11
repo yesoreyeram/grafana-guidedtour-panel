@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 (2023-05-11)
+
+- **Bug fix**: Supported new UI standard > Grafana 9.5
+
 ## 0.3.0 (2023-02-28)
 
 - **Chore**: Migrated build process from `@grafana/toolkit` to `@grafana/create-plugin`

@@ -17,17 +17,32 @@ export const GuidedTourPanel = (props: PanelProps<GuidedTourOptions>) => {
     return {
       target: getStepSelector(step),
       disableBeacon: options.disableBeacon,
-      content: <StepContainer content={step.content} contentAlign={options.contentAlign} backgroundImage={options.backgroundImage} />,
+      content: (
+        <StepContainer
+          content={step.content}
+          contentAlign={options.contentAlign}
+          backgroundImage={options.backgroundImage}
+        />
+      ),
     };
   });
-  const lastButtonText = options.redirectURL && options.redirectURL.length > 0 ? options.redirectURLTitle || 'Next' : 'Finish';
+  const lastButtonText =
+    options.redirectURL && options.redirectURL.length > 0 ? options.redirectURLTitle || 'Next' : 'Finish';
   // This callback method determines what needs to be done after each step
   const joyRideCallback = (data: CallBackProps) => {
     const finishedStatuses: string[] = [STATUS.FINISHED, STATUS.SKIPPED];
-    if ((data.action === ACTIONS.CLOSE && data.lifecycle === LIFECYCLE.COMPLETE) || finishedStatuses.includes(data.status)) {
+    if (
+      (data.action === ACTIONS.CLOSE && data.lifecycle === LIFECYCLE.COMPLETE) ||
+      finishedStatuses.includes(data.status)
+    ) {
       setRun(false);
     }
-    if (data.action === ACTIONS.NEXT && data.lifecycle === LIFECYCLE.COMPLETE && options.redirectURL && data.index === steps.length - 1) {
+    if (
+      data.action === ACTIONS.NEXT &&
+      data.lifecycle === LIFECYCLE.COMPLETE &&
+      options.redirectURL &&
+      data.index === steps.length - 1
+    ) {
       window.location.href = options.redirectURL;
     }
   };
